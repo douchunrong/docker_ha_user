@@ -16,7 +16,7 @@ RUN go get github.com/beego/bee
 WORKDIR $GOPATH/src/github.com/beego/bee
 RUN go install
 
-#配置 ObjectId
+#配置 HAUser
 WORKDIR $USC_HA_User_PATH/
 
 RUN chmod 777 /usr/local/start.sh
