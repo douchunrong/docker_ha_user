@@ -23,4 +23,4 @@ RUN chmod 777 /usr/local/start.sh
 
 EXPOSE 8080
 
-#CMD /usr/local/start.sh
+CMD /usr/local/start.sh
