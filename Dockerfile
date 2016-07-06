@@ -11,7 +11,7 @@ ADD script/start.sh /usr/local/
 
 RUN go get github.com/astaxie/beego
 RUN go get github.com/beego/bee
-
+RUN go get gopkg.in/mgo.v2
 #配置 bee
 WORKDIR $GOPATH/src/github.com/beego/bee
 RUN go install
