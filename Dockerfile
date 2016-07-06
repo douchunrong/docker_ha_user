@@ -6,7 +6,7 @@ RUN echo $USC_HA_User_PATH
 RUN mkdir $USC_HA_User_PATH
 
 ADD script/USC-HA-User/  $USC_HA_User_PATH/
-ADD script/gopkg.in/mgo.v2 $GOPATH/src/gopkg.in/mgo.v2
+#ADD script/gopkg.in/mgo.v2 $GOPATH/src/gopkg.in/mgo.v2
 ADD script/start.sh /usr/local/
 
 RUN go get github.com/astaxie/beego
