@@ -61,8 +61,9 @@ func (c *HauserController) Get() {
 	fmt.Println("hauser ====>", hauser)
 	//	callback_data := make(map[string]interface{}) //返回数据
 	if err != nil {
-		panic(err)
+		hauser = nil
 	}
+
 	c.Data["json"] = hauser
 	c.ServeJSON()
 }
