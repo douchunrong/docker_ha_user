@@ -58,6 +58,7 @@ func (c *HauserController) Get() {
 	object_id := c.GetString(":id") //接收数据
 	fmt.Println("Get ====>", object_id)
 	hauser, err := models.FindHaUser(object_id)
+	fmt.Println("hauser ====>", hauser)
 	//	callback_data := make(map[string]interface{}) //返回数据
 	if err != nil {
 		panic(err)
