@@ -103,5 +103,15 @@ func (c *HauserController) Put() {
 // @router /:id [delete]
 func (c *HauserController) Delete() {
 	fmt.Println("Delete======>", c.GetString(":id"))
+	object_id := c.GetString(":id")
+	callback_data := make(map[string]interface{}) //返回数据
+	err := models.DelHaUser(object_id)
+
+	if err != nil {
+		callback_data["state"] = 500
+	} else {
+		callback_data["state"] = 200
+	}
+	c.Data["json"] = callback_data
 	c.ServeJSON()
 }

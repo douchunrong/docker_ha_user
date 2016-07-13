@@ -1,7 +1,7 @@
 package models
 
 import (
-	//	"fmt"
+	"fmt"
 
 	"github.com/astaxie/beego"
 	"gopkg.in/mgo.v2"
@@ -52,18 +52,19 @@ func FindHaUser(object_id string) (interface{}, error) {
 	return &result, nil
 }
 
-func DelHaUser(m interface{}) error {
+func DelHaUser(object_id string) error {
 	session, err := mgo.Dial(beego.AppConfig.String("url")) //连接数据库
+
 	if err != nil {
 		panic(err)
 	}
+
 	defer session.Close()
 	session.SetMode(mgo.Monotonic, true)
 
-	db := session.DB("Hauser")   //数据库名称
-	collection := db.C("hauser") //如果该集合已经存在的话，则直接返回
+	db := session.DB("Hauser").C("hauser") //如果该集合已经存在的话，则直接返回
 
-	collection.Remove(m)
+	err = db.Remove(bson.M{"object_id": object_id})
 
 	if err != nil {
 		return err
